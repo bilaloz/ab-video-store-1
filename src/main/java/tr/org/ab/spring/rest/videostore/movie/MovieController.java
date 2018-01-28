@@ -1,5 +1,6 @@
 package tr.org.ab.spring.rest.videostore.movie;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import tr.org.ab.spring.rest.videostore.core.SimpleResponse;
@@ -14,7 +15,8 @@ import java.util.Collection;
 @RequestMapping("/movies")
 public class MovieController {
 
-    private MovieFixture movieFixture = new MovieFixture();
+    @Autowired
+    private MovieService movieFixture ;
 
     @GetMapping("/{id}")
     Movie getMovie(@PathVariable("id") String id) {
